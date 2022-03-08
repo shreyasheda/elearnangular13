@@ -8,4 +8,7 @@ export class ServerComponent {
   serverId:number = 12;
   serverState:string = 'offline';
 
+  getColor(){
+    return this.serverState === 'online' ? 'green' : 'red'
+  }
 }
