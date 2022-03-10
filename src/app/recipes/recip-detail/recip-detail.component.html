@@ -10,13 +10,16 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Add</a></li>
-        <li><a href="#">Edit</a></li>
-        <li><a href="#">Delete</a></li>
-      </ul>
+    <div class="dropdown" appDropdown #r=appDropdown>
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="true">
+        Manage Recipe
+      </button>
+      <div class="dropdown-menu"
+      [ngClass]="{'show':r.isOpen}">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+      </div>
     </div>
   </div>
 </div>
