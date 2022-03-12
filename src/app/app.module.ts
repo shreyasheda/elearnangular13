@@ -2,39 +2,55 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ServerComponent } from './server/server.component';
-import { ServersComponent } from './servers/servers.component';
-import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipDetailComponent } from './recipes/recip-detail/recip-detail.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { DropDownDirective } from './shared/dropdown.directive';
-import { ShoppingListService } from './shopping-list/shopping.service';
 
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { ServersComponent } from './servers/servers.component';
+import { UserComponent } from './users/user/user.component';
+import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { ServerComponent } from './servers/server/server.component';
+import { ServersService } from './servers/servers.service';
+//import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolver } from './servers/server/myserver-resolver.service';
+
+// const appRoutes: Routes = [
+//   { path: '', component: HomeComponent },
+//   { path: 'users', component: UsersComponent , children: [
+//     { path: ':id', component: UserComponent }
+//     ] },
+//   { path: 'servers', component: ServersComponent , children: [
+//     { path: ':id', component: ServerComponent },
+//     { path: ':id/edit', component: EditServerComponent }
+//     ] },
+//     // { path: 'not-found', component : PageNotFoundComponent },
+//     // { path: 'something', redirectTo: '/not-found'}
+//     { path: '**', component : PageNotFoundComponent }
+// ]
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponent,
+    HomeComponent,
+    UsersComponent,
     ServersComponent,
-    HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipDetailComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    DropDownDirective
+    UserComponent,
+    EditServerComponent,
+    ServerComponent,
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    // RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ServersService, AuthService, AuthGuardService, CanDeactivateGuard, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
