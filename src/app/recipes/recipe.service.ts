@@ -8,10 +8,10 @@ export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('A test Recipe', 'Recipe description', 'https://thumbs.dreamstime.com/z/top-view-photo-di-cut-clipping-path-white-background-dish-thai-food-called-rice-mixed-shrimp-paste-recipes-140945833.jpg'
-    , [
-      new Ingredients('Test',1)
-    ]),
+    // new Recipe('A test Recipe', 'Recipe description', 'https://thumbs.dreamstime.com/z/top-view-photo-di-cut-clipping-path-white-background-dish-thai-food-called-rice-mixed-shrimp-paste-recipes-140945833.jpg'
+    // , [
+    //   new Ingredients('Test',1)
+    // ]),
     new Recipe('Pizza', 'Pizza Recipe description', 'https://thumbs.dreamstime.com/z/top-view-photo-di-cut-clipping-path-white-background-dish-thai-food-called-rice-mixed-shrimp-paste-recipes-140945833.jpg'
     ,[
       new Ingredients('Pizza Base',1),
@@ -33,6 +33,11 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipeById(index: number){
+    // return this.recipes.slice()[index];
+    return this.recipes[index];
   }
 
   addIngToShopping(ing: Ingredients[]){

@@ -42,11 +42,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" (click)="onSelect('recipe')" href="#">Recipes</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLinkActive="active" routerLink="/recipes" >Recipes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="onSelect('shopping-list')" href="#">Shopping List</a>
+        <a class="nav-link" [routerLink]="'/shopping-list'">Shopping List</a>
       </li>
     </ul>
     <div class="dropdown" appDropdown #r=appDropdown>
@@ -54,9 +54,9 @@
         aria-haspopup="true" aria-expanded="false">
         Manage
       </button>
-      <div class="dropdown-menu" [ngClass]="{'show':r.isOpen}" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Action 1</a>
+      <div class="dropdown-menu" style="cursor: pointer;" [ngClass]="{'show':r.isOpen}" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" style="cursor: pointer;">Save Data</a>
+        <a class="dropdown-item" style="cursor: pointer;">Fetch Data</a>
       </div>
     </div>
   </div>
